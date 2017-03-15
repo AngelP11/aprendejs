@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script>
+		var textoString = prompt('ingrese cadena'),
+			letras = textoString.split(''),
+			letrasReves = textoString.split('').reverse();
+
+			if (letras.join('')==letrasReves.join('')) {
+				console.log('si es palindromo');
+				console.log(letras.join(''));
+				console.log(letrasReves.join(''));
+			} else {
+				console.log('no es palindromo');
+				console.log(letras.join(''));
+				console.log(letrasReves.join(''));
+			}
+
+			/*
+				for(i in letras) {
+					if(letras[i] == letrasReves[i]) {
+						console.log(" es un palíndromo");
+						break;
+					}
+						else {
+						console.log(" no es un palíndromo");
+						break;
+					}
+				}
+			*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+@font-face {
+    font-family: 'consolas';
+    src:    url('../fonts/consolas.eot?gygh7p');
+    src:    url('../fonts/consolas.eot?gygh7p#iefix') format('embedded-opentype'),
+        url('../fonts/consolas.woff') format('woff'),
+        url('../fonts/consolas.ttf?gygh7p') format('truetype'),
+        url('../fonts/consolas.svg?gygh7p#MankSans-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'consolas', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'consolas', sans-serif;
+    letter-spacing: 1.5px;
+}
+.section__titulo {
+    text-align: center;
+    font-size: 40px;
+    color: #f0db4f;
+}
+.contenedor {
+    margin: auto;
+    width: 99%;
+}
+/*-------------------Estilos del header-------------------*/
+.header {
+    height: 60px;
+    background-color: #f0db4f;
+}
+.header .contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+.logo, .icon-menu {
+    margin: 5px;
+    color: #333;
+}
+h1.logo { 
+    position: relative; 
+    float: left;
+    background: transparent;
+    color: #333;
+}
+
+h1.logo a{
+    text-decoration: none;
+    color: #333;
+}
+
+h1.logo span {
+    position:absolute;
+    right:0;
+    width:0;
+    background: #f0db4f;
+    border-left: 1px solid #333;
+    animation: escribir 3s steps(30) infinite alternate;
+}
+
+.icon-menu {
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 45px;
+    background: #f0db4f;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+/*------------------Estilos del menu------------------*/
+.nav {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    transition: all 0.4s;
+    z-index: 100;
+}
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #f0db4f;
+}
+.menu__link {
+    height: auto;
+    display: block;
+    padding: 18.5px;
+    text-decoration: none;
+    color: #333;
+}
+.menu__link:hover, .select {
+    color: #333;
+}
+.mostrar {
+    left: 0;
+}
+
+.animate_item{
+    position: relative;
+}
+
+.animate_item:before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #555;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s;
+}
+
+.animate_item:hover:before {
+    width: 100%;
+}
+
+.animate_left:before {
+    left: 0;
+}
+
+.animate_right:before {
+    right: 0;
+}
+
+.animate_center:before {
+    left: 50%;
+}
+
+.animate_center:hover:before {
+    left: 0;
+}
+
+
+/*--------------Estilos de banner--------------*/
+
+.banner {
+    background: url("../img/banner.png") fixed center;   
+    max-height: 100%;
+    height: 100vh; 
+    position: relative;
+    margin: 0 auto;
+    padding: 5%;
+    background-size: cover;
+}
+
+.banner .contenedor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    color: #333;
+    text-align: center;
+}
+
+.banner .contenedor button{
+    margin: auto;
+}
+
+.banner__txt {
+    display: none;
+}
+
+/*-----------------Estilos Modal---------------------*/
+
+.modal {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.1);
+    
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 2s;
+}
+
+.modal__contenido{
+    width: 60%;
+    margin: 20px auto;
+    position: relative;
+    top: 60px;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: 0;
+    background: #F3F3F3;
+}
+
+span.modal_cerrar{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: #444;
+    cursor: pointer;
+    font-size: 22px;
+    top: 10px;
+    right: 10px;
+}
+
+.modal_cerrar:hover{
+    color: #000;
+}
+
+.modal__header, .modal_body, .modal__footer{
+    padding: 0 10px;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.modal__header{
+    flex-grow: 1;
+}
+
+.modal_body{
+    flex-grow: 200;
+    border-bottom: solid 2px #333;
+    border-top: solid 2px #333;
+    background: #FFF;
+    color: #333;
+}
+
+.modal__footer{
+    flex-grow: 1;
+}
+
+.modal__show{
+    animation: modal_show 1s forwards;
+}
+
+@keyframes modal_show {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/*-----------------Estilos formularios---------------------*/
+
+label{
+  cursor: pointer;
+}
+
+fieldset{
+  border: none;
+  padding: 1em 0;
+}
+
+legend{
+  font-size: 2em;
+  line-height: 60px;
+}
+
+select{
+    min-width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: 22px;
+    margin-bottom: .8em;
+    outline: none;
+    background: transparent;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid gray;
+  display: block;
+  font-size: 22px;
+  margin-bottom: .8em;
+  min-width: 100%;   
+  outline: none;
+}
+
+input:focus, select:focus{
+  border-bottom: 3px solid #f0db4f;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number], input[type=date]{
+  text-align: right;
+}
+
+
+button[type="submit"], .btn_javascript{
+  background-color: #f0db4f;
+  border: none;
+  color: #333;
+  display: block;
+  letter-spacing: 1.2;
+  margin-top: .5em;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+
+button[type="submit"]:hover, button[type="submit"]:focus, .btn_javascript:hover, .btn_javascript:focus{
+  box-shadow: 0 0 10px gray;
+  cursor: pointer;
+}
+
+input[type=checkbox], input[type=radio]{
+  width: 0;
+  height: 0;
+}
+
+input[type=checkbox] + label{
+  width: 2.8em;
+  height: 1.1em;
+  background-color: gray;
+  display: block;
+  border-radius: 1.25em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  -webkit-transition: all .5s;
+     -moz-transition: all .5s;
+      -ms-transition: all .5s;
+       -o-transition: all .5s;
+          transition: all .5s;
+  cursor: pointer;
+}
+
+input[type=checkbox] + label:before{
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px gray;
+  content: "";
+  display: block;
+  height: 1.2em;
+  position: relative;
+
+  -webkit-transform: tanslateY(-15%);
+     -moz-transform: tanslateY(-15%);
+      -ms-transform: tanslateY(-15%);
+       -o-transform: tanslateY(-15%);
+          transform: tanslateY(-15%);
+
+  -webkit-transition: all .5s;
+     -moz-transition: all .5s;
+      -ms-transition: all .5s;
+       -o-transition: all .5s;
+          transition: all .5s;
+
+  width: 1.2em;
+}
+
+input[type=checkbox]:checked + label:before{
+  background-color: green;
+  left: 1.5em;
+}
+
+input[type=checkbox]:checked + label{
+  background-color: #f0db4f;
+}
+
+input[type=checkbox]:focus + label{
+  box-shadow: 0 0 20px #f0db4f;
+}
+
+input[type=radio] + label{
+  cursor: pointer;
+}
+
+input[type=radio] + label:before{
+  content: "";
+  border-radius: 50%;
+  display: inline-block;
+  width: .75em;
+  height: .75em;
+  background-color: transparent;
+  box-shadow: 0 0 0 3px gray;
+  margin-right: .5em;
+  cursor: pointer;
+}
+
+input[type=radio]:checked + label:before{
+  background-color: #f0db4f;
+  color: #f0db4f;
+  width: .75em;
+  height: .75em;
+  box-shadow: 0 0 0 2px white,
+        0 0 0 5px #f0db4f;
+}
+
+
+
+/*-------------------estilos table-------------------*/
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+caption{
+  font-size: 24px;
+  line-height: 64px;
+  padding-left: 24px;
+  text-align: left;
+}
+
+thead tr{
+  border-bottom: 1px solid gray;
+  line-height: 56px;
+}
+
+th{
+  color: rgba(51, 51, 51, 0.75);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+tbody tr{
+  border-bottom: 1px solid gray;
+  line-height: 48px;
+}
+
+tbody tr:hover{
+  background-color: rgba(51, 51, 51, 0.1);
+}
+
+td{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+td:first-child,th:first-child{
+  padding-left: 24px;
+  width: 50px;
+}
+
+/*-----------------Estilos de footer-----------------*/
+
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/*------------------Estilos responsive------------------*/
+
+@media (max-width: 1023px) {
+    .menu{
+        border-top: 2px solid #fff;
+    }
+
+    .modal__contenido{
+        width: 95%;
+    }
+
+}
+
+@media(min-width:480px) {
+
+    .logo {
+        font-size: 35px;
+    }
+    .banner__titulo {
+        font-size: 30px;
+        margin: 5px 0;
+    }
+    .banner__txt {
+        display: block;
+        font-size: 18px;
+        margin: 7px 0;
+    }
+    .info, .cursos {
+        display: flex;
+        justify-content: space-between;
+        margin-top: -90px;
+    }
+    .info__columna {
+        width: 32%;
+    }
+    .info__titulo {
+        font-size: 30px;
+        margin: 5px 0;
+    }
+    .section__titulo {
+        width: 100%;
+    }
+    .cursos {
+        flex-wrap: wrap;
+        margin-top: 0;
+    }
+    .cursos__columna {
+        width: 49%;
+    }
+    .footer .social [class^="icon-"] {
+        margin: 0 10px;
+    }
+}
+@media(min-width:768px) {  
+    .banner__titulo {
+        font-size: 50px;
+    }
+    .cursos__titulo {
+        font-size: 40px;
+    }
+}
+
+@media(min-width:1024px) {  
+    .contenedor {
+        width: 1000px;
+    }
+    .section__titulo {
+        font-size: 50px;
+        margin: 30px 0;
+    }
+    .nav {
+        position: static;
+        width: auto;
+    }
+    .menu {
+        display: flex;
+    }
+    .icon-menu {
+        display: none;
+    }
+    .menu__link {
+        background: none;
+        font-size: 20px;
+    }
+    .select {
+        color: #333;
+    }
+
+    .select:before{
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: rgba(51, 51, 55, 0.77);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .banner__titulo {
+        font-size: 60px;
+    }
+    .banner__txt {
+        font-size: 25px;
+    }
+
+}
+
+@media(min-width:1280px) {
+    .contenedor {
+        width: 1200px;
+    }
+    .banner .contenedor {
+        top: 40%;
+    }
+}
+
+@keyframes escribir {
+    from { width: 100% }
+    to { width:0 }
+}

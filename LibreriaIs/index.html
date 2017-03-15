@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- bootstrap styles -->
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<!-- temas styles -->
+	<link rel="stylesheet" href="public/css/eden.css">
+	<!-- icomoon -->
+	<link rel="stylesheet" href="public/css/icomoon.css">
+</head>
+<body>
+
+
+<div class="container">
+	<h1>Libreria.is</h1>
+	<a href="" class="link">link</a>
+	<a href="" id="link">link</a>
+	<a href="" class="link">link</a>
+	<a href="" class="link">link</a>
+	<a href="" class="link">link</a>
+
+	<form action="#" id="login_frm">
+
+		<input type="email" name="email" placeholder="E-mail">
+		<input type="passowrd" name="passowrd" placeholder="Passowrd">
+
+		<button type="submit">Entrar</button>
+		
+	</form>
+</div>
+
+	
+	<script src="public/js/jquery.min.js"></script>
+	<script src="public/js/bootstrap.min.js"></script>
+	<script src="app/libreria.is.js"></script>
+
+
+	<script>
+
+		var frmLogin = lib.Selector('#login_frm');
+
+		lib.validar.frm(frmLogin);
+
+		
+	</script>
+</body>
+</html>

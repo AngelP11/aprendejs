@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="AJAX Precticas">
+
+	<link rel="apple-touch-startup-image" href="./public/img/AJAX_logo.png">
+	<link rel="shortcut icon" type="image/png" href="./public/img/AJAX_logo.png">
+	<link rel="apple-touch-icon" href="./public/img/AJAX_logo.png">
+
+	<title>Agenda AJAX</title>
+	<link rel="stylesheet" href="public/css/agenda_ajax.css">
+	<link rel="stylesheet" href="public/css/icon.css">
+
+</head>
+<body>
+
+	<header>
+		<div class="contenedor">
+			<h1 class="icon-dog">Agenda AJAX</h1>
+			<span class="icon-menu" id="btn_menu"></span>
+			<nav class="menu">
+				<a href="#/">Inicio</a>
+				<a href="#/Listar">Listar</a>
+				<a href="#/">Registrar</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="contenedor" id="vistas">
+
+		</div>
+	</main>
+
+
+	<div class="modal" id="modal">
+	    <div class="modal__contenido" id="modal_contenido">
+	    	
+	    </div>
+	</div>
+
+	<footer class="footer">
+		<div class="contenedor">
+			<p class="copy">&copy; Agenda AJAX</p>
+		</div>
+	</footer>
+
+	<script src="public/js/agenda_ajax.js"></script>
+
+	 <!-- LIBRERIAS -->
+	<script src="public/js/ajax.js"></script>
+	<script src="public/js/enrutador.js"></script>
+	
+</body>
+</html>

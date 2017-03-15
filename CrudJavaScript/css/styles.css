@@ -1,0 +1,167 @@
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizin: 0;
+	 -moz-box-sizin: 0;
+	 -ms-box-sizin: 0;
+	 -o-box-sizin: 0;
+	 box-sizin: 0; 
+}
+
+table{
+	width: 100%;
+}
+
+label , input{
+	width: 100%;
+}
+
+.contenedor{
+	margin: 30px;
+}
+
+h1{
+	line-height: 65px;
+	color: teal;
+}
+
+/*formularios*/
+
+
+input{
+	border: none;
+	border-bottom: 1px solid gray;
+	display: block;
+	font-size: 24px;
+	margin-bottom: 1em;
+	min-width: 50%;
+	outline: none;
+	height: 25px;
+}
+
+input:focus{
+	border-bottom: 3px solid teal;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+
+input[type=date]{
+	text-align: right;
+}
+
+button{
+	background-color: teal;
+	border: none;
+	color: white;
+	display: block;
+	letter-spacing: 1.2;
+	margin-top: 1em;
+	text-transform: uppercase;
+	padding: 5px;
+}
+
+button:hover, button:focus{
+	box-shadow: 0 0 10px gray;
+}
+
+
+/*fin formularios*/
+
+/*tablas*/
+
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+caption{
+	font-size: 24px;
+	line-height: 64px;
+	padding-left: 24px;
+	text-align: left;
+}
+
+thead tr{
+	border-bottom: 1px solid gray;
+	line-height: 56px;
+}
+
+th{
+	color: rgba(51, 51, 51, 0.75);
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+
+tbody tr{
+	border-bottom: 1px solid gray;
+	line-height: 48px;
+}
+
+tbody tr:hover{
+	background-color: rgba(51, 51, 51, 0.1);
+}
+
+td{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+td:first-child,th:first-child{
+	padding-left: 24px;
+	width: 50px;
+}
+
+.acciones{
+	border: none;
+	background-color: transparent;
+	color: teal;
+	font-weight: bold;
+	margin-bottom: 0;
+	text-transform: uppercase; 
+}
+
+/*fin tablas*/
+
+table .acciones_btns{
+	width: 200px!important;
+}
+
+table .acciones_btns button{
+	display: inline-block;
+}
+
+.acciones{
+	border: none;
+	background-color: transparent;
+	color: teal;
+	font-weight: bold;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+/*fin tablas*/
+
+/*mensajes*/
+
+.mensajes{
+	padding: 5px;
+	margin: 10px 0; 
+	width: 100%;
+	color: white;
+	font-weight: bold;
+}
+
+.msj-bn{
+	background-color: green;
+}
+
+.msj-error{
+	background-color: red;
+}

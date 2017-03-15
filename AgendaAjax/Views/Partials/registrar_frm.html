@@ -1,0 +1,49 @@
+ <div class="modal__header">
+	<h2>Registrar</h2>
+	<span class="modal_cerrar">X</span>
+</div>
+<div class="modal_body">
+	<fieldset>
+        <form id="registar_frm" method="POST" action="Controllers/agendaController.php">
+            <div class="from_separador">
+                <label for="cedula">Cedula</label>
+                <input type="text" name="cedula_txt" id="cedula" required="" autocomplete="off">
+            </div>
+            <div class="from_separador">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre_txt" id="nombre" required="" autocomplete="off">
+            </div>
+            <div class="from_separador">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido_txt" id="apellido" required="" autocomplete="off">
+            </div>
+            <div class="from_separador">
+                <label for="genero">Genero</label>
+                <select name="genero_sct" id="genero" required="">
+                    <option value=""></option>
+                    <option value="1">Femenino</option>
+                    <option value="2">Masculino</option>
+                </select>
+            </div>
+            <div class="from_separador">
+                <label for="email">Email</label>
+                <input type="email" name="email_txt" id="email" required="" autocomplete="off">
+            </div>
+            <div class="from_separador">
+                <label for="telefono">Teléfono</label>
+                <input type="text" name="telefono_txt" id="telefono" required="" autocomplete="off">
+            </div>
+
+            <div class="from_separador">
+                <label for="direccion">Dirección</label>
+                <input type="text" name="direccion_txt" id="direccion" required="" autocomplete="off">
+            </div>
+</div>
+<div class="modal__footer">
+	
+            <div class="from_separador">
+                <button type="submit" class="btn">Registrar</button>
+            </div>
+        </form>
+    </fieldset>
+</div>

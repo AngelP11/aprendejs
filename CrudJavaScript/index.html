@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CRUD JavaScript</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+	<div class="contenedor">
+		<h1>CRUD JavaScript</h1>
+
+		<div id="respuesta"></div>
+
+		<table>
+			<thead>
+				<form data-action="guardar" method="POST" id="contactos_frm">
+					<tr>
+						<td>
+							<label for="id_txt">Id:</label>
+							<input type="text" id="id_txt" placeholder="Id" disabled>
+						</td>
+						<td>
+							<label for="nombre_txt">Nombre:</label>
+							<input type="text" id="nombre_txt" required autofocus placeholder="Nombre">
+						</td>
+						<td>
+							<label for="telefono_txt">Teléfono:</label>
+							<input type="text" id="telefono_txt" required placeholder="Teléfono">
+						</td>
+						<td>
+							<label for="fecha_nacimiento_txt">Fecha Nacimiento:</label>
+							<input type="date" id="fecha_nacimiento_txt" required placeholder="Fecha Nacimiento">
+						</td>
+						<td class="acciones_btns">
+							<button type="submit" id="btn_submit">Guardar</button>
+							<button type="button" id="btn_limpiar"> Limpiar </button>
+						</td>
+					</tr>
+				</form>
+			</thead>
+			<tbody id="cuerpoTabla">
+
+			</tbody>
+		</table>
+	</div>
+
+
+	<script src="js/main.js"></script>
+</body>
+</html>

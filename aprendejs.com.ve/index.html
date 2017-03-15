@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-VE">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, usar-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Es una plataforma web creada y diseñada para todas las personas que deseen aprender el potente y maravilloso lenguaje de programación Java Script, pero aún no saben cómo o por dónde empezar, aquí podrás dar tus primeros pasos sin importar el conocimiento que tengas de Java Script, solo necesitas tener conocimientos básicos de HTML5 Y CSS3, aprende(js) cuenta con tres niveles (básico, medio y avanzado) también encontraras todos los artículos, materiales audio visuales y recursos para tu aprendizaje…">
+
+	<link rel="apple-touch-startup-image" href="./public/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="./public/img/favicon.png">
+	<link rel="apple-touch-icon" href="./public/img/favicon.png">
+
+	<title>aprende(js)</title>
+
+	<link rel="stylesheet" href="public/css/aprendejs.css">
+	<link rel="stylesheet" href="public/css/monokai_sublime.min.css">
+	<link rel="stylesheet" href="public/css/icon.css">
+	
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="contenedor">
+				<h1 class="logo"><a href="./">aprende(<i>js</i>)</a><span>&#160;</span></h1>
+				<span class="icon-menu" id="btn-menu"></span>
+				<nav class="nav" id="nav">
+					<ul class="menu">
+						<li class="menu__item animate_item animate_center">
+							<a href="#" class="menu__link">Inicio</a>
+						</li>
+						<li class="menu__item animate_item animate_center">
+							<a href="#" data-modal="modal_ingresar" class="menu__link show_modal_ingresar">Ingresar</a>
+						</li>
+						<li class="menu__item animate_item animate_center">
+							<a href="#" data-modal="modal_registrar" class="menu__link show_modal_ingresar">Registrar</a>
+						</li>
+					</ul>
+				</nav>
+		</div>
+	</header>
+
+	<div class="banner">
+		<div class="contenedor">
+			<h2 class="banner__titulo">Bienbeni@</h2>
+			<div class="banner__txt">APRENDE JAVA SCRIPT EL POTENTE Y MARAVILLOSO LENGUAJE DE PROGRAMACIÓN.</div>
+            <button class="btn btn_javascript">¿Que es?</button>
+		</div>
+	</div>
+
+	<main class="main">
+		<div class="contenedor">
+			<h2>Es una plataforma web creada y diseñada para todas las personas que deseen aprender el potente y maravilloso lenguaje de programación Java Script, pero aún no saben cómo o por dónde empezar, aquí podrás dar tus primeros pasos sin importar el conocimiento que tengas de Java Script, solo necesitas tener conocimientos básicos de HTML5 Y CSS3, aprende(js) cuenta con tres niveles (básico, medio y avanzado) también encontraras todos los artículos, materiales audio visuales y recursos para tu aprendizaje…</h2>
+		</div>
+	</main>
+
+	<div class="modal" id="modal_ingresar">
+	    <div class="modal__contenido">
+
+	        <div class="modal__header">
+	        	<h2>Ingresar</h2>
+	        	<span class="modal_cerrar">X</span>
+	        </div>
+	        <div class="modal_body">
+                <fieldset>
+                    <form action="">
+                        <div class="from_separador">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required="" autocomplete="off">
+                        </div>
+                        <div class="from_separador">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" required="" autocomplete="off">
+                        </div>
+	        </div>
+	        <div class="modal__footer">
+                        <div class="from_separador">
+                            <button type="submit" class="btn">Ingresar</button>
+                        </div>
+                    </form>
+                </fieldset>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="modal" id="modal_registrar">
+	    <div class="modal__contenido">
+
+	        <div class="modal__header">
+	        	<h2>Registrar</h2>
+	        	<span class="modal_cerrar">X</span>
+	        </div>
+	        <div class="modal_body">
+	        	<fieldset>
+                    <form action="">
+                        <div class="from_separador">
+                            <label for="nombre_rg">Nombre</label>
+                            <input type="text" name="nombre_txt" id="nombre_rg" required="" autocomplete="off">
+                        </div>
+                        <div class="from_separador">
+                            <label for="apellido_rg">Apellido</label>
+                            <input type="text" name="apellido_txt" id="apellido_rg" required="" autocomplete="off">
+                        </div>
+                        <div class="from_separador">
+                            <label for="genero_rg">Genero</label>
+                            <select name="genero_txt" id="genero_rg" required="">
+                                <option value=""></option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </div>
+                        <div class="from_separador">
+                            <label for="email_rg">Email</label>
+                            <input type="email" name="email_txt" id="email_rg" required="" autocomplete="off">
+                        </div>
+                        <div class="from_separador">
+                            <label for="password_rg">Password</label>
+                            <input type="password" name="password_txt" id="password_rg" required="" autocomplete="off">
+                        </div>
+                        <div class="from_separador">
+                            <label for="confirme_password_rg">Confirme password</label>
+                            <input type="password" name="confirme_password_txt" id="confirme_password_rg" required="" autocomplete="off">
+                        </div>
+	        </div>
+	        <div class="modal__footer">
+	        	
+                        <div class="from_separador">
+                            <button type="submit" class="btn">Registrar</button>
+                        </div>
+                    </form>
+                </fieldset>
+	        </div>
+	    </div>
+	</div>
+
+	<footer class="footer">
+		<div class="contenedor">
+			<p class="copy">&copy; aprende(js)</p>
+		</div>
+	</footer>
+	
+	<script src="public/js/aprendejs.js"></script>	
+</body>
+</html>
