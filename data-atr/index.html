@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data Atributes</title>
+</head>
+<body>
+	
+	<div data-num='0'></div>
+
+	<button data-btn="+">sumar</button>
+	<button data-btn="-" >restar</button>
+
+	<script type="text/javascript">
+		
+		(function(w, d, n){
+
+			'use strict';
+
+			var div = d.querySelector('[data-num]'),
+				num = div.dataset.num,
+				btn = d.querySelectorAll('[data-btn]');
+
+				btn.forEach(function(elemet, index){
+					elemet.addEventListener( 'click' , operar);
+				});
+
+			function operar(event){
+				event.preventDefault();
+				div.textContent = eval(`${num} ${event.target.dataset.btn} 1`);
+				num = div.textContent;
+			}
+
+		})(window, document, navigator);
+
+	</script>
+	
+</body>
+</html>

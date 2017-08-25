@@ -325,6 +325,305 @@ console.log(estatura); //175
 console.log(peso); //75 
 */
 
+/* Además, podemos combinar el destructuring con el spread operator para hacer una
+asignación como la siguiente: */
+
+/* var a, b, iterableObj;
+[a, b, ...iterableObj] = [1, 2, 3, 4, 5];
+
+console.log(a,b, iterableObj); */
+
+//------------------------------------------------------------
+
+//Parámetros Rest
+
+/* Hasta ahora, cuando pasábamos argumentos a una f unción, se añadía una variable
+arguments que incluía todos los parámetros (def inidos o no) que había recibido nuestra
+f unción. */
+
+// ES5
+/* function printName (name){
+    var length = arguments.length;
+    var fullName = name;
+    if(length > 1){
+        for(var i=1; i< length; i++){
+            fullName += ' ' + arguments[i];
+        }
+    }
+    console.log(fullName);
+};
+
+printName('Felipe'); // Felipe
+printName('Felipe', 'Juan', 'Froilan'); //Felipe Juan Froilan
+*/
+
+/* Los parámetros Rest nos proporcionan una manera de pasar un conjunto
+indeterminado de parámetros que la función agrupa en forma de Array. Como detalle (de
+lógica), solo puede ser parámetro rest el último argumento de la función. Veamos mejor a
+qué me refiero. */
+
+/* // ES6
+function printName(name, ...fancyNames){
+    var fullName = name;
+    fancyNames.forEach(fancyN => fullName += ' ' + fancyN);
+    console.log(fullName);
+};
+printName('Felipe'); // Felipe
+printName('Felipe', 'Juan', 'Froilan'); //Felipe Juan Froilan */
+
+//-------------------------------------------------------------
+
+/* Operador de propagación (Spread operator)
+
+El spread operator lo que nos permite es pasar un array de elementos a una f unción,
+convirtiendo cada uno de los elementos en un argumento. Se podría pensar en el spread
+operator como la versión inversa de los parámetros rest. 
+Lo vemos mejor con un ejemplo.
+
+Antes (en ES5), para pasar un array de elementos a una f unción como parámetros,
+usaríamos el método apply del siguiente modo: */
+
+//ES5
+/* function f(x, y, z) { console.log(x, y, z) }
+var args = [0, 1, 2];
+f.apply(null, args); */
+
+/* Ahora en cambio lo podemos hacer poniendo 3 puntos delante del array, es decir, usando el
+spread operator: */
+
+//ES6
+/* function f(x, y, z) { console.log(x, y, z) }
+var args = [0, 1, 2];
+f(...args); */
+
+/* Además, cualquier argumento puede aprovecharse de esta característica, con lo que
+podríamos sacar ventaja para cosas como las siguientes: */
+
+//ES6
+//example1
+/* function f(v, w, x, y, z) { console.log(v, w, x, y, z) }
+var args = [0, 1];
+f(-1, ...args, 2, ...[3]); */
+
+//example2
+/* var parts1 = ['shoulder', 'knees'];
+var parts2 = ['chest', 'waist'];
+var lyrics = ['head', ...parts1, ...parts2, 'and', 'toes'];
+
+console.log(lyrics); */
+
+//lyrics = ['head', 'shoulder', 'knees', 'chest', 'waist', 'and', 'toes'];
+
+
+//-------------------------------------------------------------
+
+/* For ... of loop
+
+El for...of loop nos permite crear un bucle de iteración a través de colecciones (Array,
+string, Map, Set, ...). Este tipo de bucle es equivalente al que podríamos hacer con un
+forEach, pero la sintaxis es más similar a bucles for en otros lenguajes, como por ejemplo
+Python. */
+
+//ES5
+/* var numbers = [1,2,3,4,5];
+numbers.forEach(function(value) {
+    console.log(value);
+});
+//1, 2, 3, 4, 5
+ */
+
+//ES6
+/* var numbers = [1,2,3,4,5];
+for(let item of numbers){
+    //remember let is useful to define local vars
+    console.log(item);
+}; */
+//1, 2, 3, 4, 5
+
+//ES6
+/* var word = "foo";
+for(let item of word){
+    console.log(item);
+}; */
+//"f", "o", "o"
+
+/* La principal diferencia entre for...in y for...of es que el
+primero itera entre todas las propiedades enumerables de un objeto, mientras que el segundo no funciona con todos los
+objetos, sino que es especifico de colecciones, es decir, solo
+itera sobre los elementos de cualquier colección que
+contenga la propiedad Symbol.iterator */
+
+//ES6
+/* let iterable = [3, 5, 7];
+iterable.foo = "hello";
+
+for (let i in iterable) {
+    console.log(i); // logs 0, 1, 2, "foo"
+}
+
+for (let i of iterable) {
+    console.log(i); // logs 3, 5, 7
+} */
+
+//-----------------------------------------------------------------------------
+
+/* Block level function declarations
+
+Con ES6 podemos declarar f unciones a nivel de bloque de f orma segura (ES5 lo
+desaconsejaba, por que sus scopes está diseñados a nivel de f unción).
+
+
+Si miramos el siguiente ejemplo, veremos que en ES5 el log de f () siempre es 2: */
+//ES5
+/* function f() { return 1; }
+{
+    console.log(f()); // 2
+function f() { return 2; }
+    console.log(f()); // 2
+}
+console.log(f()); // 2 */
+
+/* Lo que está pasando es que las llaves no crean un scope nuevo, 
+y por tanto la f unción f () se redef ine para el scope global. */
+
+
+/* En cambio, si hacemos lo mismo en ES6, vemos que f () devuelve el valor 2 dentro de las
+llaves, pero el valor 1 f uera. */
+//ES6
+
+/* function f() { return 1; }
+{
+    console.log(f()); // 2
+function f() { return 2; }
+    console.log(f()); // 2
+}
+console.log(f()); // 1
+ */
+
+/* Esto es por que en ES6, como en muchos otros lenguajes de programación, el bloque que
+se def ine entre llaves genera un nuevo scope (block scope).
+ */
+
+ //------------------------------------------------------------
+
+//Generadores
+
+/* Los generadores son f unciones de las que se puede salir y volver a entrar y que conservan
+su contexto entre las reentradas. Así de primeras parece extraño, pero no lo es tanto, si
+vemos a los generadores como una herramienta para construir iteradores.
+
+Un generador se declara con f unction* (la palabra clave f unction seguida de una asterisco).
+También se pueden def inir f unciones generadoras usando el constructor
+GeneratorFunction y una f unction* expression.
+
+La llamada a una f unción generadora no se ejecuta inmediatamente, sino que
+devuelve un objeto iterador. Cuando llamamos al metodo next() del iterador, se ejecuta
+el cuerpo de la f unción hasta la primera expresión yield, que determina el valor a devolver (o
+se delega con yield* a otro generador).
+El método next() devuelve un objeto con 2 propiedades:
+
+__ value: El valor que devuelve la expresión yield
+__ done: Indica si es el último yield del generador.
+
+Vamos a clarif icarlo con un ejemplo, donde aprovechamos para recordar también algo de
+destructuring: */
+
+/* function* idMaker(){
+    
+    var index = 0;
+    
+    while(index < 3)
+        yield index++;
+    
+    yield "end";
+
+}
+
+var gen = idMaker();
+
+while(true){
+    let {value, done} = gen.next();
+    if(done)
+        break;
+    console.log(value);
+}
+// 0, 1, 2, end */
+
+/* Para completar el tema de los generadores, vamos a ver un ejemplo de un generador que
+ref erencia a otro con yield*. Además, aprovecho para recordar que al devolver un iterador,
+puede aprovecharse del bucle f or...of : */
+
+/* var anotherGenerator = function*(i) {
+    yield i + 1;
+    yield i + 2;
+    yield i + 3;
+}
+
+function* generator(i){
+    yield i;
+    yield* anotherGenerator(i);
+    yield i + 10;
+}
+
+for(let val of generator(10)){
+    console.log(val);
+}
+//10, 11, 12, 13, 20 */
+
+
+//-------------------------------------------------------------
+
+//Mapas y Sets
+
+/* ES6 incorpora 4 nuevas estructuras de datos, que son Map, WeakMap, Set y WeakSet. Si
+has trabajado con lenguajes como Java o Python ya te harás una idea de para que sirven.
+Vamos a repasarlos. */
+
+
+/* Map
+El objecto Map nos permite relacionar (mapear) unos valores con otros como si fuera un
+diccionario, en formato clave/valor. Cualquier valor (tanto objetos como valores
+primitivos) puede ser usados como clave o valor. */
+
+/* Los Maps nos permiten, por ejemplo, saber de inmediato si existe una clave o borrar un par
+clave/valor concreto: */
+
+//ES6
+/* let map = new Map();
+    map.set('foo', 123);
+
+let user = {userId: 1};
+
+console.log(
+    map.set(user, 'Alex'),
+    map.get('foo'), //123
+    map.get(user), //Alex
+    map.size, //2
+    map.has('foo'), //true
+    map.delete('foo'), //true
+    map.has('foo'), //false
+    map.clear(),
+    map.size //0
+) */
+
+/* Además, podemos crear Maps a partir de un array de pares: */
+
+/* map = new Map([['user1','Alex'], ['user2', 'Vicky'], ['user3', 'Enrique']]);
+for(let [key, value] of map){
+    console.log(key, value);
+}
+//"user1" "Alex"
+//"user2" "Vicky"
+//"user3" "Enrique"
+map.keys(); //iterator with keys
+map.values(); //iterator with values
+map.entries(); //iterator with pair [key, value] */
+
+
+
+
+
+
 //-------------------------------------------------------------
 
 //Clases

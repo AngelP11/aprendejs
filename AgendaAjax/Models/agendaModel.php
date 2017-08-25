@@ -17,6 +17,9 @@
 
 			$sql = "INSERT INTO pesonas(id, cedula, nombre_completo, genero, telefono, email, direccion) VALUES (NULL,'$_cedula','$_nombreCompleto','$_genero','$_telefono','$_email','$_direccion')";
 
+			$sql = "INSERT INTO blocks(id, block, store_shopping_id, dir_name, type, created)
+			 	 	VALUES (null,".$_POST['blocks'].", ".$_POST['store_shopping_id'].", ".$_POST['dir_name'].",".$_POST['type'].", NOW())";
+
 		}
 
 		public function tablaBuscar(){

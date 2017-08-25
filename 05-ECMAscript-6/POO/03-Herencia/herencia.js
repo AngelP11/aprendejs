@@ -35,4 +35,4 @@ var Ton = new Gato( 'Ton', 'Negro con blanco', 2);
 
 console.log( Ton.informacion() );
 
-console.log( Ton.decirMiau() );
+Ton.decirMiau();
